@@ -9,15 +9,19 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 // MongoDB
 const mongoose_1 = __importDefault(require("mongoose"));
+// File Upload
+const express_fileupload_1 = __importDefault(require("express-fileupload"));
 // Routes
 const user_routes_1 = __importDefault(require("../routes/user.routes"));
+const file_routes_1 = __importDefault(require("../routes/file.routes"));
 class Server {
     constructor(_port, _mongoURI) {
         this._app = (0, express_1.default)();
         this._port = _port;
         this._mongoURI = _mongoURI;
         this._apiPath = {
-            user: '/api/v1/user'
+            user: '/api/v1/user',
+            file: '/api/v1/file'
         };
     }
     confCors() {
@@ -28,11 +32,15 @@ class Server {
         }));
     }
     parseBody() {
+        // Set Express File Upload
+        this._app.use((0, express_fileupload_1.default)());
+        // Parse Body
         this._app.use(express_1.default.urlencoded({ extended: false }));
         this._app.use(express_1.default.json());
     }
     routes() {
         this._app.use(this._apiPath.user, user_routes_1.default);
+        this._app.use(this._apiPath.file, file_routes_1.default);
     }
     connectDB() {
         mongoose_1.default.connect(this._mongoURI, {

@@ -1,4 +1,5 @@
 
 export interface ApiPath {
-    user: string
+    user: string,
+    file: string
 }
