@@ -1,0 +1,34 @@
+{
+  "name": "netkeep",
+  "version": "0.1.0-alpha",
+  "description": "Local Cloud API Rest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexander-moscosa/NetKeep.git"
+  },
+  "author": "Joshua Alexander Moscosa M.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexander-moscosa/NetKeep/issues"
+  },
+  "homepage": "https://github.com/alexander-moscosa/NetKeep#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.6",
+    "tslint": "^6.1.3",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  }
+}
